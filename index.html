@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Validator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?night-sky');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #333;
+            cursor: pointer;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input[type="text"] {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4d3b;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            height: 150px;
+            object-fit: cover;
+            width: 150px;
+        }
+
+        .team-member h3 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scientific Number Validator</h1>
+        <nav>
+            <a onclick="toggleContent('file')">File</a>
+            <a onclick="toggleContent('edit')">Edit</a>
+            <a onclick="toggleContent('run')">Run</a>
+            <a onclick="toggleContent('about-us')">About Us</a>
+        </nav>
+        <input type="text" id="numberInput" placeholder="Enter a scientific number">
+        <button onclick="checkNumber()">Validate</button>
+        <p id="result"></p>
+
+        <div id="file" class="content">
+    
+        </div>
+        
+        <div id="edit" class="content">
+            
+        </div>
+        
+        <div id="run" class="content">
+           
+        </div>
+
+        <div id="about-us" class="content team-member">
+            <img src="IMG/FOTO I 1.svg"Team Member">
+            <h3>LIA FARNSINA RUMTEH</h3>
+            <p>221011060103</p>
+            <p>Sistem Informasi</p>
+            <p>Universitas Sam Ratulangi</p>
+            <a href="https://www.instagram.com/rumteh26?igshid=MWh5YzN5NDVkaHh0eg==" target="_blank"><i class="fab fa-instagram"></i> Follow me on Instagram</a>
+        </div>
+    </div>
+
+    <script>
+        function checkNumber() {
+            var input = document.getElementById("numberInput").value.trim();
+            var pattern = /^-?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/;
+            if (pattern.test(input)) {
+                document.getElementById("result").innerHTML = "Valid scientific number.";
+                document.getElementById("result").style.color = "#4caf50";
+            } else {
+                document.getElementById("result").innerHTML = "Invalid scientific number.";
+                document.getElementById("result").style.color = "#ff6f61";
+            }
+        }
+
+        function toggleContent(id) {
+            var contents = document.getElementsByClassName("content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</body>
+</html>
